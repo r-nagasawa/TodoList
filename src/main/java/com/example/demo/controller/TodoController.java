@@ -44,6 +44,14 @@ public class TodoController {
 		 
 	     return "redirect:/todos";
 	 }
+	
+	@PostMapping("stBack")
+	 public String statusBack(Model model, @RequestParam("id") Long id) {
+		 todoService.back(id);
+		 model.addAttribute("click", false);
+		 
+	     return "redirect:/todos";
+	 }
 	  
 	 //タスク新規登録用
 	  @GetMapping("new")

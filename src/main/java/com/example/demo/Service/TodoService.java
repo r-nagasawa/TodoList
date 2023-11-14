@@ -37,6 +37,13 @@ public class TodoService{
 		 todo.setStatus(true);
 		 todoMapper.update(todo);
 	 }
+	 
+	 @Transactional
+	 public void back(Long id) {
+		 TodoList todo = findOne(id);
+		 todo.setStatus(false);
+		 todoMapper.update(todo);
+	 }
 
 	public void delete(Long id) {
 		todoMapper.delete(id);

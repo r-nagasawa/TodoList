@@ -38,7 +38,10 @@
          			<td class="text-center" th:text="*{date}"></td>
          			<td class="text-center">
 						<th:block th:if="*{status}">
-				  			-
+				  			<form action="/todos/stBack" method="post">
+							<input type = "hidden" name = "id" th:value="*{id}">
+                  			<button class="btn btn-sm btn-primary" type="submit">未完了</button>
+                		</form>
 				  		</th:block>
 				  		<th:block th:if="*{!status}">
 						<form action="/todos/stUpdate" method="post">
