@@ -51,6 +51,13 @@ public class TodoController {
 	    return "new";
 	  }
 	  
+	  @PostMapping("/post")
+	  public String addTodo(@ModelAttribute TodoList todo) {
+//		  System.out.println(task.toString());
+		  todoService.save(todo);
+		  return "redirect:/todos";
+	  }
+	  
 	  @PostMapping
 	  public String create(@ModelAttribute("todo") @Validated TodoList todo, BindingResult result, Model model) {
 	    if (result.hasErrors()) {

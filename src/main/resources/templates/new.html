@@ -1,50 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-	<title>Todo新規</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>ToDo</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/app.css" />
 </head>
 <body>
-	<nav class="navbar navbar-inverse">
-		<div class="container">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="/todos">Todo</a>
-			</div>
-		</div>
+  <header class="mb-5">
+    <nav class="navbar navbar-light bg-light">
+      <a href="/todos" class="navbar-brand">ToDo</a>
     </nav>
-	<div class="container">
-		<div class="card card-primary mb-3">
-	  			<div class="card-header">
-	  				<h5 class="card-title">タスクを追加する</h5>
-	  			</div>
+  </header>
+  <main>
+	<div class="todo-container">
+		<h1 class="h3 mb-4">タスクを追加する</h1>
+			<div class="card">
 				<div class="card-body">
-	      			<form th:method="post" th:action="@{/todos}" th:object="${todo}">
-	        			<div class="form-group row">
-	          				<label class="col-md-2 control-label">タイトル</label>
-	          				<div class="col-md-10">
-	            				<input class="form-control" type="text" name="task" th:value="*{task}" />
-	            				<div class="text-danger" th:if="${#fields.hasErrors('task')}" th:errors="*{task}"></div>
-	          				</div>
+	      			<form action="/post" th:object="${todo}" method="post">
+	        			<div class="form-group">
+	          				<label for="title">タイトル</label>
+	            			<input class="form-control" type="text" th:field="*{task}" />
+	            			<div class="text-danger" th:if="${#fields.hasErrors('task')}" th:errors="*{task}"></div>
 	        			</div>
-	        			<div class="form-group row">
-	          				<label class="col-md-2 control-label">期限</label>
-	          				<div class="col-md-10">
-	            				<input class="form-control" type="date" name="date" th:value="*{date}"/>
-	            				<div class="text-danger" th:if="${#fields.hasErrors('date')}" th:errors="*{date}"></div>
-	          				</div>
+	        			<div class="form-group">
+	          				<label for="limit">期限</label>
+	            			<input class="form-control" type="date" th:field="*{date}">
+	          			</div>
+	          			<div class="d-flex justify-content-between align-items-center">
+              				<a href="/todos" class="btn btn-outline-primary">戻る</a>
+              				<button class="btn btn-primary" type="submit">追加する</button>
 	        			</div>
-	        			<div class="form-group row">
-	          				<div class="offset-md-2 col-md-10">
-	            				<button class="btn btn-primary">新規</button>
-	          				</div>
-	        			</div>
-	      		</form>
+	      			</form>
+				</div>
 	    	</div>
 	  	</div>
-	  </div>
-  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</main>
 </body>
 </html>

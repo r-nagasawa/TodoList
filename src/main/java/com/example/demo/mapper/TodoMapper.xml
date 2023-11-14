@@ -17,6 +17,4 @@
   <select id="update">
     update todo set status=#{status} where id= #{id}
   </select>
-  
-
 </mapper>
