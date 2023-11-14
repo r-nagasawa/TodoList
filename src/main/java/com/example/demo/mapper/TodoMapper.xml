@@ -14,7 +14,7 @@
   </insert>
   
   
-  <select id="changeTodo" resultType="com.example.demo.entity.TodoList">
+  <select id="update">
     update todo set status=#{status} where id= #{id}
   </select>
   
