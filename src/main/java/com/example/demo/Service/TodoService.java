@@ -30,7 +30,7 @@ public class TodoService{
 		 todoMapper.save(todo);
 	  }
 	 
-	 //idを取得してtodoに代入、statusのtrue/falseをDBに保存
+	 //idを取得してtodoに代入、statusをtrueに変更
 	 @Transactional
 	 public void update(Long id) {
 		 TodoList todo = findOne(id);

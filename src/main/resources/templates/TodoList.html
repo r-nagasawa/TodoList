@@ -40,11 +40,13 @@
          				<td th:text="*{task}"></td>
          				<td class="text-center" th:text="*{#dates.format(date, 'yyyy/MM/dd')}"></td>
          				<td class="text-center">
-	         				<form action="/update" th:method="post">
+						<th:block th:if="*{!status}">
+	         				<form action="/stUpdate" method="post">
 								<input type = "hidden" name = "id" th:value="${id}">
-								<td class="text-center" th:if="${status}">-</td>
-								<button class="btn btn-primary" th:unless="${status}">OK</button>
+								<!--<td class="text-center" th:if="${status}">-</td>-->
+								<button class="btn btn-sm btn-primary" type="submit">OK</button>
 							</form>
+						</th:block>
          				</td>
        				</tr>
      			</tbody>

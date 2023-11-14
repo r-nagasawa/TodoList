@@ -37,10 +37,11 @@ public class TodoController {
 	}
 	  
 	//status変更に関するController
-	@PostMapping("update")
+	@PostMapping("stUpdate")
 	 public String statusChange(Model model, @RequestParam("id") Long id) {
 		 todoService.update(id);
 		 model.addAttribute("click", true);
+		 
 	     return "redirect:/todos";
 	 }
 	  
