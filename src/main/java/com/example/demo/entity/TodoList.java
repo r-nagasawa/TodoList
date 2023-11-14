@@ -1,6 +1,8 @@
 package com.example.demo.entity;
 
 import jakarta.validation.constraints.NotBlank;
+
+import java.time.LocalDate;
 import java.util.Date;
 
 public class TodoList{
@@ -9,7 +11,7 @@ public class TodoList{
 	@NotBlank(message="Todoタイトルを記入してください。")
 	private String task;
 
-	private Date date;
+	private LocalDate date;
 	
 	private boolean status;
 	
@@ -29,11 +31,11 @@ public class TodoList{
 		this.task = task;
 	}
 	
-	public Date getDate() {
+	public LocalDate getDate() {
 		return date;
 	}
 	
-	public void setDate(Date date) {
+	public void setDate(LocalDate date) {
 		this.date = date;
 	}
 	
@@ -43,5 +45,10 @@ public class TodoList{
 	
 	public void setStatus(boolean status) {
 		this.status = status;
+	}
+	
+	@Override
+	public String toString() {
+		return "TodoList [id=" + id + ", task=" + task + ", date=" + date + ", status=" + status + "]";
 	}
 }

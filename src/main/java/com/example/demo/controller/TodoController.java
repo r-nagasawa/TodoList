@@ -47,13 +47,13 @@ public class TodoController {
 	  
 	 //タスク新規登録用
 	  @GetMapping("new")
-	  public String newTodo(@ModelAttribute("todo") TodoList todo, Model model) {
-	    return "new";
+	  public String newTodo(Model model) {
+		  model.addAttribute("todo", new TodoList());
+		  return "new";
 	  }
 	  
-	  @PostMapping("/post")
+	  @PostMapping("post")
 	  public String addTodo(@ModelAttribute TodoList todo) {
-//		  System.out.println(task.toString());
 		  todoService.save(todo);
 		  return "redirect:/todos";
 	  }
