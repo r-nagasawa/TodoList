@@ -67,4 +67,10 @@ public class TodoController {
 	    	return "redirect:/todos";
 	    }
 	  }
+	  
+	  @PostMapping("delete/{id}") //DeleteMapping...削除に使えるアノテーション
+	  public String delete(Model model, @RequestParam("id") Long id) {
+		  todoService.delete(id);
+	    return "redirect:/todos"; 
+	  }
 }

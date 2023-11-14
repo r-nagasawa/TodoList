@@ -3,7 +3,7 @@ package com.example.demo.entity;
 import jakarta.validation.constraints.NotBlank;
 
 import java.time.LocalDate;
-import java.util.Date;
+//import java.util.Date;
 
 public class TodoList{
 	private Long id;

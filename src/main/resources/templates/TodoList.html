@@ -47,6 +47,12 @@
                 		</form>
                 		</th:block>
          			</td>
+         			<td class="text-center">
+						 <form action="/todos/delete/{id}(id=*{id})" method="post">
+							<input type = "hidden" name = "id" th:value="*{id}">
+                  			<button class="btn btn-sm btn-primary" type="submit">削除</button>
+                		</form>
+					</td>
        			</tr>
      		</tbody>
    		</table>

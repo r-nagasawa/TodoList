@@ -15,4 +15,6 @@ public interface TodoMapper{
 	void save(TodoList todo);
 	
 	void update(TodoList todo);
+
+	void delete(Long id);
 }
