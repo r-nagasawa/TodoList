@@ -41,6 +41,8 @@
          				<td class="text-center" th:text="*{#dates.format(date, 'yyyy/MM/dd')}"></td>
          				<td class="text-center">
 						<th:block th:if="*{!status}">
+							
+							<!--OKボタンフォーム-->
 	         				<form action="/stUpdate" method="post">
 								<input type = "hidden" name = "id" th:value="${id}">
 								<!--<td class="text-center" th:if="${status}">-</td>-->

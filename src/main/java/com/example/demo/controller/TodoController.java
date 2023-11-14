@@ -36,7 +36,7 @@ public class TodoController {
 	    return "show";
 	}
 	  
-	//status変更に関するController
+	//status変更用Controller
 	@PostMapping("stUpdate")
 	 public String statusChange(Model model, @RequestParam("id") Long id) {
 		 todoService.update(id);
