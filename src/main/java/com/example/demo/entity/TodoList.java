@@ -1,4 +1,4 @@
-package entity;
+package com.example.demo.entity;
 
 import jakarta.validation.constraints.NotBlank;
 import java.util.Date;
@@ -15,6 +15,10 @@ public class TodoList{
 	
 	public Long getId() {
 		return id;
+	}
+	
+	public void setId(Long id) {
+		this.id = id;
 	}
 	
 	public String getTask() {

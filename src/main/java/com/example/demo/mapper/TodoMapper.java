@@ -1,10 +1,10 @@
-package mapper;
+package com.example.demo.mapper;
 
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import entity.TodoList;
+import com.example.demo.entity.TodoList;
 
 @Mapper
 public interface TodoMapper{
@@ -14,5 +14,5 @@ public interface TodoMapper{
 	
 	void save(TodoList todo);
 	
-	void changeTodo(Long id);
+	void update(TodoList todo);
 }

@@ -1,4 +1,4 @@
-package controller;
+package com.example.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,11 +10,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import Service.TodoService;
-import entity.TodoList;
+import com.example.demo.Service.TodoService;
+import com.example.demo.entity.TodoList;
 
-
+//コントローラーはイベントを受けて処理を呼び出す。
 @Controller
 @RequestMapping("/todos")
 
@@ -23,11 +24,12 @@ public class TodoController {
 	private TodoService todoService;
 	
 	@GetMapping
-	public String TodoList(Model model) {
+	public String todoList(Model model) {
 		model.addAttribute("todos", todoService.findAll());
-	    return "TodoList";
+	    return "todoList";
 	}
-	  
+	
+	//該当するidのデータ
 	@GetMapping("{id}")
 	public String show(@PathVariable Long id, Model model) {
 	    model.addAttribute("todo", todoService.findOne(id));
@@ -35,9 +37,10 @@ public class TodoController {
 	}
 	  
 	//status変更に関するController
-	 @GetMapping("/change-status")
-	 public String statusChange(Long id) {
-		 todoService.changeTodo(id);
+	@PostMapping("update")
+	 public String statusChange(Model model, @RequestParam("id") Long id) {
+		 todoService.update(id);
+		 model.addAttribute("click", true);
 	     return "redirect:/todos";
 	 }
 	  
