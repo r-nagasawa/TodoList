@@ -17,6 +17,14 @@
  <main>
 	 <div class="todo-container">
 		<h1 class="h3 mb-4">タスク一覧</h1>
+		<div class="card-body">
+			<select name="sort">
+				<option value="">並び順を変更</option>
+				<option value="Descending">期限が近い順</option>
+				<option value="Ascending">期限が遅い順</option>
+			</select>
+			<input type="button" value="並び変える" onclick="sortTodo()">
+		</div>
   			<div class="card-body" th:if="!${todos.size()}">
      			<p>Todoはありません。</p>
    			</div>

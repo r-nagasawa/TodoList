@@ -10,7 +10,7 @@ public class TodoList{
 	
 	@NotBlank(message="Todoタイトルを記入してください。")
 	private String task;
-
+	
 	private LocalDate date;
 	
 	private boolean status;

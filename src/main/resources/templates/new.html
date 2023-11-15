@@ -18,14 +18,17 @@
     <div class="todo-container">
 
       <h1 class="h3 mb-4">タスクを追加する</h1>
+      
 
       <div class="card">
         <div class="card-body">
           <form action="/todos/post" th:object="${todo}" method="post">
             <div class="form-group">
               <label for="title">タイトル</label>
-              <input class="form-control" type="text" th:field="*{task}" />
+              <input class="form-control" type="text" th:field="*{task}">
+              <div class="text-danger" th:if="${#fields.hasErrors('task')}" th:errors="*{task}"></div>
             </div>
+            
             <div class="form-group">
               <label for="limit">期限</label>
               <input class="form-control" type="date" th:field="*{date}" />

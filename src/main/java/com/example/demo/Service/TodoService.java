@@ -45,6 +45,7 @@ public class TodoService{
 		 todoMapper.update(todo);
 	 }
 
+	@Transactional
 	public void delete(Long id) {
 		todoMapper.delete(id);
 	}
