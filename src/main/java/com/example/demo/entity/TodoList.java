@@ -1,8 +1,12 @@
 package com.example.demo.entity;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDate;
+
+import org.springframework.format.annotation.DateTimeFormat;
 //import java.util.Date;
 
 public class TodoList{
@@ -11,6 +15,7 @@ public class TodoList{
 	@NotBlank(message="Todoタイトルを記入してください。")
 	private String task;
 	
+	@NotNull(message="期限を設定してください。")
 	private LocalDate date;
 	
 	private boolean status;
@@ -46,9 +51,9 @@ public class TodoList{
 	public void setStatus(boolean status) {
 		this.status = status;
 	}
-	
+	/*
 	@Override
 	public String toString() {
 		return "TodoList [id=" + id + ", task=" + task + ", date=" + date + ", status=" + status + "]";
-	}
+	}*/
 }

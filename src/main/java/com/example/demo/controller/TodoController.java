@@ -60,13 +60,18 @@ public class TodoController {
 			  return "new";
 	  }
 	  
-	  @PostMapping("post")
-	  public String addTodo(@ModelAttribute TodoList todo, Model model) {
-		  todoService.save(todo);
-		  return "redirect:/todos";
+	  //@PostMapping("post")
+	  public String addTodo(@ModelAttribute @Validated TodoList todo, BindingResult result, Model model) {
+		  if (result.hasErrors()) {
+			  model.addAttribute("todo", todo);
+		      return "new";
+		  }else {
+			  todoService.save(todo);
+			  return "redirect:/todos";
+		  }
 	  }
 	  
-	  @PostMapping
+	  @PostMapping("post")
 	  public String create(@ModelAttribute("todo") @Validated TodoList todo, BindingResult result, Model model) {
 	    if (result.hasErrors()) {
 	      return "new";
