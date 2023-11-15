@@ -1,12 +1,9 @@
 package com.example.demo.entity;
 
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDate;
-
-import org.springframework.format.annotation.DateTimeFormat;
 //import java.util.Date;
 
 public class TodoList{

@@ -21,4 +21,12 @@
   <delete id="delete">
     delete from todo where id = #{id}
   </delete>
+  
+  <!--<select id="sort">
+    select * from todo order by date
+  </select>
+  
+  <select id="sortDesc">
+    select * from todo order by date DESC
+  </select>-->
 </mapper>

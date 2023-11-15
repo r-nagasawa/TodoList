@@ -44,7 +44,7 @@ public class TodoController {
 		 
 	     return "redirect:/todos";
 	 }
-	
+	//status戻し用
 	@PostMapping("stBack")
 	 public String statusBack(Model model, @RequestParam("id") Long id) {
 		 todoService.back(id);
@@ -58,17 +58,6 @@ public class TodoController {
 	  public String newTodo(Model model) {
 			  model.addAttribute("todo", new TodoList());
 			  return "new";
-	  }
-	  
-	  //@PostMapping("post")
-	  public String addTodo(@ModelAttribute @Validated TodoList todo, BindingResult result, Model model) {
-		  if (result.hasErrors()) {
-			  model.addAttribute("todo", todo);
-		      return "new";
-		  }else {
-			  todoService.save(todo);
-			  return "redirect:/todos";
-		  }
 	  }
 	  
 	  @PostMapping("post")
@@ -86,4 +75,10 @@ public class TodoController {
 		  todoService.delete(id);
 	    return "redirect:/todos"; 
 	  }
+	  
+	  //ソート用
+	  /*@PostMapping("sort")
+	  public void sort(@ModelAttribute("todo") @Validated TodoList todo, BindingResult result, Model model) {
+		  
+	  }*/
 }
